@@ -1,7 +1,9 @@
 import {Command, flags} from '@oclif/command'
 
 export default class Run extends Command {
-  static description = 'describe the command here'
+  static description = 'Serve the Sapling project on an available port'
+
+  static aliases = ['start', 'serve', 'open', 'launch']
 
   static flags = {
     help: flags.help({char: 'h'}),

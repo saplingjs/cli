@@ -1,7 +1,9 @@
 import {Command, flags} from '@oclif/command'
 
 export default class Edit extends Command {
-  static description = 'describe the command here'
+  static description = 'Reconfigure an existing Sapling project'
+
+  static aliases = ['modify', 'reconfigure', 'change']
 
   static flags = {
     help: flags.help({char: 'h'}),

@@ -1,7 +1,9 @@
 import {Command, flags} from '@oclif/command'
 
 export default class Update extends Command {
-  static description = 'describe the command here'
+  static description = 'Upgrade to the latest version of Sapling and its dependencies'
+
+  static aliases = ['upgrade']
 
   static flags = {
     help: flags.help({char: 'h'}),

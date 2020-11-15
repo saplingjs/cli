@@ -1,7 +1,7 @@
 import {Command, flags} from '@oclif/command'
 
 export default class Set extends Command {
-  static description = 'describe the command here'
+  static description = 'Set a config variable in the current Sapling project'
 
   static flags = {
     help: flags.help({char: 'h'}),
