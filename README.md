@@ -28,28 +28,44 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`sapling hello [FILE]`](#sapling-hello-file)
+* [`sapling create [FILE]`](#sapling-create-file)
+* [`sapling edit [FILE]`](#sapling-edit-file)
 * [`sapling help [COMMAND]`](#sapling-help-command)
+* [`sapling run [FILE]`](#sapling-run-file)
+* [`sapling set [FILE]`](#sapling-set-file)
+* [`sapling update [FILE]`](#sapling-update-file)
 
-## `sapling hello [FILE]`
+## `sapling create [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ sapling hello [FILE]
+  $ sapling create [FILE]
 
 OPTIONS
   -f, --force
   -h, --help       show CLI help
   -n, --name=name  name to print
-
-EXAMPLE
-  $ sapling hello
-  hello world from ./src/hello.ts!
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/saplingjs/cli/blob/v0.1.0/src/commands/hello.ts)_
+_See code: [src/commands/create.ts](https://github.com/saplingjs/cli/blob/v0.1.0/src/commands/create.ts)_
+
+## `sapling edit [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ sapling edit [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/edit.ts](https://github.com/saplingjs/cli/blob/v0.1.0/src/commands/edit.ts)_
 
 ## `sapling help [COMMAND]`
 
@@ -67,4 +83,52 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.0/src/commands/help.ts)_
+
+## `sapling run [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ sapling run [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/run.ts](https://github.com/saplingjs/cli/blob/v0.1.0/src/commands/run.ts)_
+
+## `sapling set [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ sapling set [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/set.ts](https://github.com/saplingjs/cli/blob/v0.1.0/src/commands/set.ts)_
+
+## `sapling update [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ sapling update [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/update.ts](https://github.com/saplingjs/cli/blob/v0.1.0/src/commands/update.ts)_
 <!-- commandsstop -->
