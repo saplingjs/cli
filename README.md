@@ -6,7 +6,7 @@ CLI for setting up and managing Sapling projects
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/@sapling/cli.svg)](https://npmjs.org/package/@sapling/cli)
 [![Downloads/week](https://img.shields.io/npm/dw/@sapling/cli.svg)](https://npmjs.org/package/@sapling/cli)
-[![License](https://img.shields.io/npm/l/@sapling/cli.svg)](https://github.com/SaplingJS/cli/blob/master/package.json)
+[![License](https://img.shields.io/npm/l/@sapling/cli.svg)](https://github.com/saplingjs/cli/blob/master/package.json)
 
 <!-- toc -->
 * [Usage](#usage)
@@ -19,7 +19,7 @@ $ npm install -g @sapling/cli
 $ sapling COMMAND
 running command...
 $ sapling (-v|--version|version)
-@sapling/cli/0.1.0 darwin-x64 node-v13.14.0
+@sapling/cli/0.1.0 darwin-x64 node-v15.2.0
 $ sapling --help [COMMAND]
 USAGE
   $ sapling COMMAND
@@ -49,7 +49,7 @@ EXAMPLE
   hello world from ./src/hello.ts!
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/SaplingJS/cli/blob/v0.1.0/src/commands/hello.ts)_
+_See code: [src/commands/hello.ts](https://github.com/saplingjs/cli/blob/v0.1.0/src/commands/hello.ts)_
 
 ## `sapling help [COMMAND]`
 

@@ -2,11 +2,11 @@
   "name": "@sapling/cli",
   "description": "CLI for setting up and managing Sapling projects",
   "version": "0.1.0",
-  "author": " @groenroos",
+  "author": "@groenroos",
   "bin": {
     "sapling": "./bin/run"
   },
-  "bugs": "https://github.com/SaplingJS/cli/issues",
+  "bugs": "https://github.com/saplingjs/cli/issues",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
@@ -32,11 +32,13 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/SaplingJS/cli",
+  "homepage": "https://github.com/saplingjs/cli",
   "keywords": [
-    "oclif"
+    "oclif",
+    "cli",
+    "sapling"
   ],
-  "license": "MIT",
+  "license": "MPL-2.0",
   "main": "lib/index.js",
   "oclif": {
     "commands": "./lib/commands",
@@ -45,7 +47,7 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "SaplingJS/cli",
+  "repository": "saplingjs/cli",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint . --ext .ts --config .eslintrc",
