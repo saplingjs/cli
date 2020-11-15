@@ -1,0 +1,11 @@
+{
+    "db": {
+        "MongoDB": "@sapling/db-driver-mongodb",
+        "Memory": ""
+    },
+
+    "render": {
+        "Nunjucks": "@sapling/render-driver-nunjucks",
+        "HTML": ""
+    }
+}

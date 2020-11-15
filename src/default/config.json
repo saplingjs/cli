@@ -1,0 +1,13 @@
+{
+    "name": "",
+    "production": "auto",
+    "db": {
+        "driver": ""
+    },
+    "render": {
+        "driver": ""
+    },
+    "mail": {
+        "type": ""
+    }
+}
