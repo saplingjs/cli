@@ -6,9 +6,9 @@
 
 import * as path from 'path'
 import * as fs from 'fs-extra'
-import { execSync } from 'child_process'
 
 import cli from 'cli-ux'
+import * as execa from 'execa'
 import * as inquirer from 'inquirer'
 import * as editJsonFile from 'edit-json-file'
 
@@ -110,7 +110,7 @@ export async function runQuestionnaire(isNew: boolean = true) {
 	}
 
 	/* Install dependencies */
-	execSync(`cd ${responses.name} && npm install --save @sapling/sapling ${drivers.db[responses.db]} ${drivers.render[responses.render]} && cd ..`)
+	execa(`cd ${responses.name} && npm install --save @sapling/sapling ${drivers.db[responses.db]} ${drivers.render[responses.render]} && cd ..`, { env: { FORCE_COLOR: 'true' } }).stdout.pipe(process.stdout)
 
 	/* Copy default folders */
 	if(isNew) {
@@ -120,4 +120,7 @@ export async function runQuestionnaire(isNew: boolean = true) {
 	}
 
 	cli.action.stop()
+
+	console.log(`Sapling project created in ${responses.name}/`)
+	console.log(`To run, do:  cd ${responses.name} && sapling run`)
 }
