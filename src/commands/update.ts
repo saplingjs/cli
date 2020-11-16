@@ -1,5 +1,8 @@
 import {Command, flags} from '@oclif/command'
 
+import { isSapling } from '../satnav'
+import * as execa from 'execa'
+
 export default class Update extends Command {
 	static description = 'Upgrade to the latest version of Sapling and its dependencies'
 
@@ -10,12 +13,8 @@ export default class Update extends Command {
 	}
 
 	async run() {
-		const {flags} = this.parse(Update)
-
-		const name = flags.name ?? 'world'
-		this.log(`hello ${name} from /Users/groenroos/Repositories/cli/src/commands/update.ts`)
-		if (args.file && flags.force) {
-			this.log(`you input --force and --file: ${args.file}`)
+		if(await isSapling()) {
+			execa.command('npm upgrade').stdout.pipe(process.stdout);
 		}
 	}
 }
