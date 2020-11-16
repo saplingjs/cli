@@ -9,10 +9,8 @@ export default class Update extends Command {
 		help: flags.help({char: 'h'}),
 	}
 
-	static args = []
-
 	async run() {
-		const {args, flags} = this.parse(Update)
+		const {flags} = this.parse(Update)
 
 		const name = flags.name ?? 'world'
 		this.log(`hello ${name} from /Users/groenroos/Repositories/cli/src/commands/update.ts`)

@@ -1,5 +1,7 @@
 import {Command, flags} from '@oclif/command'
+
 import { runQuestionnaire } from '../setup'
+import { isSapling } from '../satnav'
 
 export default class Edit extends Command {
 	static description = 'Reconfigure an existing Sapling project'
@@ -11,8 +13,8 @@ export default class Edit extends Command {
 	}
 
 	async run() {
-		const { flags } = this.parse(Edit)
-
-		runQuestionnaire(false)
+		if(await isSapling()) {
+			runQuestionnaire(false)
+		}
 	}
 }

@@ -11,8 +11,6 @@ export default class Create extends Command {
 	}
 
 	async run() {
-		const { flags } = this.parse(Create)
-
 		runQuestionnaire()
 	}
 }

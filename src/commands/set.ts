@@ -13,7 +13,7 @@ export default class Set extends Command {
 	static args = [{name: 'key'}, {name: 'value'}]
 
 	async run() {
-		const {args, flags} = this.parse(Set)
+		const {args} = this.parse(Set)
 
 		/* Check we're in the right place */
 		if(await isSapling()) {
