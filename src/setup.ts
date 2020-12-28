@@ -112,11 +112,17 @@ export async function runQuestionnaire(isNew: boolean = true) {
 	/* Install dependencies */
 	execa(`cd ${responses.name} && npm install --save @sapling/sapling ${drivers.db[responses.db]} ${drivers.render[responses.render]} && cd ..`, { env: { FORCE_COLOR: 'true' } }).stdout.pipe(process.stdout)
 
-	/* Copy default folders */
+	/* If we're doing a new project */
 	if(isNew) {
+		/* Copy default folders */
+		fs.copySync(path.join(responses.name, 'node_modules/@sapling/sapling/hooks'), path.join(responses.name))
 		fs.copySync(path.join(responses.name, 'node_modules/@sapling/sapling/views'), path.join(responses.name))
 		fs.copySync(path.join(responses.name, 'node_modules/@sapling/sapling/public'), path.join(responses.name))
 		fs.copySync(path.join(responses.name, 'node_modules/@sapling/sapling/static'), path.join(responses.name))
+
+		/* Copy default file */
+		fs.copySync(path.join(responses.name, 'node_modules/@sapling/sapling/hooks.json'), path.join(responses.name))
+		fs.copySync(path.join(responses.name, 'node_modules/@sapling/sapling/permissions.json'), path.join(responses.name))
 	}
 
 	cli.action.stop()
