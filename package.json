@@ -17,7 +17,7 @@
     "@types/fs-extra": "^9.0.8",
     "@types/inquirer": "^7.3.1",
     "cli-ux": "^5.5.1",
-    "edit-json-file": "^1.5.0",
+    "edit-json-file": "^1.6.0",
     "execa": "^5.0.0",
     "fs-extra": "^9.0.1",
     "get-port": "^5.1.1",
