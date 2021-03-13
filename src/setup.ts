@@ -11,6 +11,26 @@ import cli from 'cli-ux'
 import * as execa from 'execa'
 import * as inquirer from 'inquirer'
 import * as editJsonFile from 'edit-json-file'
+import * as friendlyWords from 'friendly-words';
+
+/**
+ * Generate an available project name
+ *
+ * @returns {string} Generated name
+ */
+function generateName(): string {
+	/* Generate a name */
+	const adj = friendlyWords.predicates[Math.floor(Math.random() * friendlyWords.predicates.length)];
+	const obj = friendlyWords.objects[Math.floor(Math.random() * friendlyWords.objects.length)];
+	const name = `${adj}-${obj}`;
+
+	/* If it's taken, come up with something new */
+	if (fs.existsSync(name)) {
+		return generateName();
+	}
+
+	return name;
+}
 
 export async function runQuestionnaire(isNew: boolean = true) {
 	/* Read available drivers from disk */
@@ -22,7 +42,7 @@ export async function runQuestionnaire(isNew: boolean = true) {
 			name: 'name',
 			message: 'What\'s the name of your project?',
 			type: 'string',
-			default: 'untitled',
+			default: generateName(),
 			validate: function (value) {
 				if (!value.match(/^[a-zA-Z0-9-_]+$/i))
 					return 'Please only use letters, numbers and dashes, no spaces';
@@ -34,7 +54,7 @@ export async function runQuestionnaire(isNew: boolean = true) {
 			},
 			when: function () {
 				return isNew;
-			},
+			}
 		},
 		{
 			name: 'db',
@@ -110,7 +130,7 @@ export async function runQuestionnaire(isNew: boolean = true) {
 	}
 
 	/* Install dependencies */
-	execa(`cd ${responses.name} && npm install --save @sapling/sapling ${drivers.db[responses.db]} ${drivers.render[responses.render]} && cd ..`, { env: { FORCE_COLOR: 'true' } }).stdout.pipe(process.stdout)
+	execa(`cd ${responses.name} && npm install --save @sapling/sapling ${drivers.db[responses.db]} ${drivers.render[responses.render]} && cd ..`, { env: { FORCE_COLOR: 'true' } }).stdout?.pipe(process.stdout)
 
 	/* If we're doing a new project */
 	if(isNew) {
