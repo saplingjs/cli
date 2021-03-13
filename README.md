@@ -2,7 +2,6 @@
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/@sapling/cli.svg)](https://npmjs.org/package/@sapling/cli)
-[![Downloads/week](https://img.shields.io/npm/dw/@sapling/cli.svg)](https://npmjs.org/package/@sapling/cli)
 [![License](https://img.shields.io/npm/l/@sapling/cli.svg)](https://github.com/saplingjs/cli/blob/master/package.json)
 
 CLI for setting up and managing Sapling projects.
