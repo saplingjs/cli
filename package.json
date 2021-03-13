@@ -14,10 +14,10 @@
     "@oclif/plugin-not-found": "^1.2.4",
     "@oclif/plugin-warn-if-update-available": "^1.7.0",
     "@types/edit-json-file": "^1.4.0",
-    "@types/fs-extra": "^9.0.4",
+    "@types/fs-extra": "^9.0.8",
     "@types/inquirer": "^7.3.1",
     "cli-ux": "^5.5.1",
-    "edit-json-file": "^1.5.0",
+    "edit-json-file": "^1.6.0",
     "execa": "^5.0.0",
     "friendly-words": "^1.1.10",
     "fs-extra": "^9.0.1",
@@ -27,13 +27,13 @@
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1",
-    "@types/node": "^14.14.31",
+    "@types/node": "^14.14.33",
     "eslint": "^5.3.0",
     "eslint-config-oclif": "^3.1",
     "eslint-config-oclif-typescript": "^0.2.0",
     "globby": "^11.0.2",
     "ts-node": "^9.1.1",
-    "typescript": "^4.2.2"
+    "typescript": "^4.2.3"
   },
   "engines": {
     "node": ">=8.0.0"
