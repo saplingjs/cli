@@ -30,7 +30,7 @@ export default class Run extends Command {
 			console.log(`Running Sapling on port ${finalPort}`);
 
 			/* Execute the Sapling server with the port */
-			execa.command(`node ./node_modules/@sapling/sapling --port ${finalPort} --single`, { env: { FORCE_COLOR: 'true' } }).stdout.pipe(process.stdout)
+			execa.command(`node ./node_modules/@sapling/sapling --port ${finalPort} --single`, { env: { FORCE_COLOR: 'true' } }).stdout?.pipe(process.stdout)
 		}
 	}
 }

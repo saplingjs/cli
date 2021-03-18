@@ -14,7 +14,7 @@ export default class Update extends Command {
 
 	async run() {
 		if(await isSapling()) {
-			execa.command('npm upgrade', { env: { FORCE_COLOR: 'true' } }).stdout.pipe(process.stdout)
+			execa.command('npm upgrade', { env: { FORCE_COLOR: 'true' } }).stdout?.pipe(process.stdout)
 		}
 	}
 }
