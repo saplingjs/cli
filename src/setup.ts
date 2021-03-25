@@ -73,7 +73,7 @@ export async function runQuestionnaire(isNew: boolean = true) {
 		{
 			name: 'vue',
 			message: 'Install optional Vue.js UI components?',
-			type: 'boolean',
+			type: 'confirm',
 			default: true,
 		},
 		{
