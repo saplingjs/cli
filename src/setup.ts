@@ -105,7 +105,7 @@ export async function runQuestionnaire(isNew: boolean = true) {
 	cli.action.start('Setting up your project')
 
 	/* Do first-time setup */
-	if(isNew) {
+	if (isNew) {
 		/* Make the project directory */
 		fs.mkdirSync(responses.name)
 
@@ -117,23 +117,30 @@ export async function runQuestionnaire(isNew: boolean = true) {
 		packageJson.set('name', responses.name)
 		packageJson.save()
 
-		/* Populate config */
+		/* Populate name */
 		let config = editJsonFile(path.join(responses.name, 'config.json'))
-
 		config.set('name', responses.name)
-		config.set('db.driver', responses.db)
-		config.set('render.driver', responses.render)
-		config.set('mail.type', responses.mailtype)
-
 		config.save()
-
 	} else {
-		responses.name = process.cwd()
+		const config = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'config.json'), 'utf8'))
+		responses.name = config.name
 	}
+
+	/* Populate config */
+	let config = editJsonFile(path.join(isNew ? responses.name : process.cwd(), 'config.json'))
+
+	config.set('name', responses.name)
+	config.set('db.driver', responses.db)
+	config.set('render.driver', responses.render)
+	config.set('mail.type', responses.mailtype)
+
+	config.save()
 
 	/* Install dependencies */
 	try {
-		process.chdir(responses.name)
+		if (isNew) {
+			process.chdir(responses.name)
+		}
 		await execa('npm', ['install', '--save', '@sapling/sapling', drivers.db[responses.db], drivers.render[responses.render], responses.vue ? '@sapling/vue-components' : ''])
 	} catch (error) {
 		console.log('Something went wrong')
@@ -142,7 +149,7 @@ export async function runQuestionnaire(isNew: boolean = true) {
 	}
 
 	/* If we're doing a new project */
-	if(isNew) {
+	if (isNew) {
 		/* Copy default folders */
 		fs.copySync(path.join('node_modules/@sapling/sapling/hooks'), path.join('hooks'))
 		fs.copySync(path.join('node_modules/@sapling/sapling/views'), path.join('views'))
@@ -156,8 +163,13 @@ export async function runQuestionnaire(isNew: boolean = true) {
 
 	cli.action.stop()
 
-	console.log(`Sapling project ${responses.name} created!`)
-	console.log(`Running now...`)
 
-	execa('./node_modules/.bin/sapling', { env: { FORCE_COLOR: 'true' } }).stdout?.pipe(process.stdout)
+	if (isNew) {
+		console.log(`Sapling project ${responses.name} created!`)
+		console.log(`Running now...`)
+
+		execa('./node_modules/.bin/sapling', { stdio: 'inherit', env: { FORCE_COLOR: 'true' } }).stdout?.pipe(process.stdout)
+	} else {
+		console.log(`Sapling project ${responses.name} edited!`)
+	}
 }
