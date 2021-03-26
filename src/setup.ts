@@ -34,7 +34,7 @@ function generateName(): string {
 
 export async function runQuestionnaire(isNew: boolean = true, cwd: string = process.cwd()) {
 	/* Read available drivers from disk */
-	const drivers = JSON.parse(fs.readFileSync(path.join(__dirname, 'drivers.json'), 'utf8'));
+	const drivers = JSON.parse(fs.readFileSync(path.join(__dirname, '../drivers.json'), 'utf8'));
 
 	/* Ask everything we need to know */
 	let responses: any = await inquirer.prompt([
