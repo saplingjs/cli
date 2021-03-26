@@ -112,8 +112,10 @@ export async function runQuestionnaire(isNew: boolean = true) {
 		/* Copy default files */
 		fs.copySync(path.join(__dirname, 'default'), path.join(responses.name))
 
-		/* Create package.json */
-		fs.writeFileSync(path.join(responses.name, 'package.json'), `{"name":"${responses.name}"}`)
+		/* Populate package.json */
+		let packageJson = editJsonFile(path.join(responses.name, 'package.json'))
+		packageJson.set('name', responses.name)
+		packageJson.save()
 
 		/* Populate config */
 		let config = editJsonFile(path.join(responses.name, 'config.json'))
@@ -130,23 +132,32 @@ export async function runQuestionnaire(isNew: boolean = true) {
 	}
 
 	/* Install dependencies */
-	execa(`cd ${responses.name} && npm install --save @sapling/sapling ${drivers.db[responses.db]} ${drivers.render[responses.render]} && cd ..`, { env: { FORCE_COLOR: 'true' } }).stdout?.pipe(process.stdout)
+	try {
+		process.chdir(responses.name)
+		await execa('npm', ['install', '--save', '@sapling/sapling', drivers.db[responses.db], drivers.render[responses.render], responses.vue ? '@sapling/vue-components' : ''])
+	} catch (error) {
+		console.log('Something went wrong')
+		console.log(error)
+		process.exit()
+	}
 
 	/* If we're doing a new project */
 	if(isNew) {
 		/* Copy default folders */
-		fs.copySync(path.join(responses.name, 'node_modules/@sapling/sapling/hooks'), path.join(responses.name))
-		fs.copySync(path.join(responses.name, 'node_modules/@sapling/sapling/views'), path.join(responses.name))
-		fs.copySync(path.join(responses.name, 'node_modules/@sapling/sapling/public'), path.join(responses.name))
-		fs.copySync(path.join(responses.name, 'node_modules/@sapling/sapling/static'), path.join(responses.name))
+		fs.copySync(path.join('node_modules/@sapling/sapling/hooks'), path.join('hooks'))
+		fs.copySync(path.join('node_modules/@sapling/sapling/views'), path.join('views'))
+		fs.copySync(path.join('node_modules/@sapling/sapling/public'), path.join('public'))
+		fs.copySync(path.join('node_modules/@sapling/sapling/static'), path.join('static'))
 
 		/* Copy default file */
-		fs.copySync(path.join(responses.name, 'node_modules/@sapling/sapling/hooks.json'), path.join(responses.name))
-		fs.copySync(path.join(responses.name, 'node_modules/@sapling/sapling/permissions.json'), path.join(responses.name))
+		fs.copySync(path.join('node_modules/@sapling/sapling/hooks.json'), path.join('hooks.json'))
+		fs.copySync(path.join('node_modules/@sapling/sapling/permissions.json'), path.join('permission.json'))
 	}
 
 	cli.action.stop()
 
-	console.log(`Sapling project created in ${responses.name}/`)
-	console.log(`To run, do:  cd ${responses.name} && sapling run`)
+	console.log(`Sapling project ${responses.name} created!`)
+	console.log(`Running now...`)
+
+	execa('./node_modules/.bin/sapling', { env: { FORCE_COLOR: 'true' } }).stdout?.pipe(process.stdout)
 }
