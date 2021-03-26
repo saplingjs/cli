@@ -1,7 +1,8 @@
 import {Command, flags} from '@oclif/command'
 
+import * as path from 'path'
 import * as editJsonFile from 'edit-json-file'
-import { isSapling } from '../satnav'
+import { isSapling, getSaplingDir } from '../satnav'
 
 export default class Set extends Command {
 	static description = 'Set a config variable in the current Sapling project'
@@ -20,7 +21,7 @@ export default class Set extends Command {
 			/* Check we have the right stuff */
 			if(args.key && args.value) {
 				/* Make the change */
-				let config = editJsonFile('config.json')
+				let config = editJsonFile(path.join(await getSaplingDir(), 'config.json'))
 				config.set(args.key, args.value)
 				config.save()
 			} else {

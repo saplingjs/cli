@@ -3,15 +3,24 @@
  */
 
 import * as path from 'path'
-import * as fs from 'fs-extra'
+import * as findUp from 'find-up'
 
-export async function isSapling() {
+export async function isSapling(): Promise<boolean> {
 	/* Dirty check if Sapling's there */
-	/* TODO: make smarter, make work from any directory inside a Sapling project */
-	if(fs.existsSync(path.join('node_modules', '@sapling', 'sapling'))) {
+	if(await findUp('node_modules/@sapling/sapling', { type: 'directory' })) {
 		return true;
 	} else {
 		console.error('This doesn\'t seem to be a Sapling project.  Are you sure you\'re in the correct directory?');
 		return false;
+	}
+}
+
+export async function getSaplingDir(): Promise<string> {
+	const dir = await findUp('node_modules/@sapling/sapling', { type: 'directory' })
+
+	if (dir) {
+		return path.join(dir, '../../..')
+	} else {
+		return process.cwd()
 	}
 }
