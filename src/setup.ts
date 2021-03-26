@@ -34,7 +34,7 @@ function generateName(): string {
 
 export async function runQuestionnaire(isNew: boolean = true, cwd: string = process.cwd()) {
 	/* Read available drivers from disk */
-	const drivers = JSON.parse(fs.readFileSync(path.join(__dirname, '../drivers.json'), 'utf8'));
+	const drivers = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/drivers.json'), 'utf8'));
 
 	/* Ask everything we need to know */
 	let responses: any = await inquirer.prompt([
@@ -110,7 +110,7 @@ export async function runQuestionnaire(isNew: boolean = true, cwd: string = proc
 		fs.mkdirSync(responses.name)
 
 		/* Copy default files */
-		fs.copySync(path.join(__dirname, 'default'), path.join(responses.name))
+		fs.copySync(path.join(__dirname, '../data/default'), path.join(responses.name))
 
 		/* Populate package.json */
 		let packageJson = editJsonFile(path.join(responses.name, 'package.json'))
