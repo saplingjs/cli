@@ -42,6 +42,7 @@
   "files": [
     "/bin",
     "/lib",
+    "/drivers.json",
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
