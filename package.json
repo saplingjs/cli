@@ -1,7 +1,7 @@
 {
   "name": "@sapling/cli",
   "description": "CLI for setting up and managing Sapling projects",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "@groenroos",
   "bin": {
     "sapling": "./bin/run"
