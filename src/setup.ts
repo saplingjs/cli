@@ -32,7 +32,7 @@ function generateName(): string {
 	return name;
 }
 
-export async function runQuestionnaire(isNew: boolean = true) {
+export async function runQuestionnaire(isNew: boolean = true, cwd: string = process.cwd()) {
 	/* Read available drivers from disk */
 	const drivers = JSON.parse(fs.readFileSync(path.join(__dirname, 'drivers.json'), 'utf8'));
 
@@ -122,12 +122,12 @@ export async function runQuestionnaire(isNew: boolean = true) {
 		config.set('name', responses.name)
 		config.save()
 	} else {
-		const config = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'config.json'), 'utf8'))
+		const config = JSON.parse(fs.readFileSync(path.join(cwd, 'config.json'), 'utf8'))
 		responses.name = config.name
 	}
 
 	/* Populate config */
-	let config = editJsonFile(path.join(isNew ? responses.name : process.cwd(), 'config.json'))
+	let config = editJsonFile(path.join(isNew ? responses.name : cwd, 'config.json'))
 
 	config.set('name', responses.name)
 	config.set('db.driver', responses.db)
