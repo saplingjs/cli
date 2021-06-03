@@ -1086,9 +1086,9 @@ flatted@^2.0.0:
   integrity sha512-r5wGx7YeOwNWNlCA0wQ86zKyDLMQr+/RB8xy74M4hTphfmjlijTSSXGuH8rnvKZnfT9i+75zmd8jcKdMR4O6jA==
 
 friendly-words@^1.1.10:
-  version "1.1.10"
-  resolved "https://registry.yarnpkg.com/friendly-words/-/friendly-words-1.1.10.tgz#66a1f0cdb258fb567a0d68ca37f944cb19405fd6"
-  integrity sha512-KFrW1RS5qr7uIFF3RXITtmTHQhLA0J6htpKkoTcTSNxyXeOTio5venOr8AdOiS9KAQlxhnONcCifyJcj0kM7/A==
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/friendly-words/-/friendly-words-1.2.0.tgz#db6d9842f510d94d0bd220b7609a3188a52f80a8"
+  integrity sha512-KO9vxmqnaaHJy5O83V9vJV3e3gmoeHVJoqndqbiGcFQgYVdj1gvCy8NlGkqATAxY7PyTenFdyJ6GoYxxFu52TQ==
 
 fs-constants@^1.0.0:
   version "1.0.0"
