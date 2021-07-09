@@ -192,9 +192,9 @@
   integrity sha512-FTgBI767POY/lKNDNbIzgAX6miIDBs6NTCbdlDb8TrWovHsSvaVIZDlTqym29C6UqhzwcJx4CYr+AlrMywA0cA==
 
 "@types/edit-json-file@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@types/edit-json-file/-/edit-json-file-1.4.0.tgz#3eeb59511d715d3b33ccf357e3bb3a54aa11b45c"
-  integrity sha512-7wNUSBgizVbb86WLcs8q3neK9ba/sb2IYSkg0VeICE7hETBRTGUPTcgBelmCdMi0Vhp6rbQRhFiwuJXRkEm4Ug==
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@types/edit-json-file/-/edit-json-file-1.4.1.tgz#bc9921e7d213f08598c2a83f488458ad860fde73"
+  integrity sha512-XFs6SU4HNIzWOdBFy89AhiSFNBzI/sXXwvuffeATq4/2ZapKtmYEESK/cpHHBxPlgvzTQHPqUeaoDy0OJ5u/Dg==
   dependencies:
     "@types/node" "*"
 
