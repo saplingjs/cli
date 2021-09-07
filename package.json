@@ -15,7 +15,7 @@
     "@oclif/plugin-warn-if-update-available": "^1.7.0",
     "@types/edit-json-file": "^1.4.0",
     "@types/fs-extra": "^9.0.8",
-    "@types/inquirer": "^7.3.1",
+    "@types/inquirer": "^8.1.0",
     "cli-ux": "^5.5.1",
     "edit-json-file": "^1.6.0",
     "execa": "^5.0.0",
