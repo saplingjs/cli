@@ -22,7 +22,7 @@
     "find-up": "^6.0.0",
     "friendly-words": "^1.1.10",
     "fs-extra": "^10.0.0",
-    "get-port": "^5.1.1",
+    "get-port": "^6.0.0",
     "inquirer": "^8.0.0",
     "tslib": "^2.1.0"
   },
