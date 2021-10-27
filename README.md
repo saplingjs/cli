@@ -35,4 +35,4 @@ Detailed changes for each release are documented in the [release notes](https://
 
 ## License
 
-[Mozilla Public License 2.0](https://opensource.org/licenses/MPL-2.0)
+[MIT](https://opensource.org/licenses/MIT)
