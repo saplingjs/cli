@@ -1005,15 +1005,15 @@ doctrine@^3.0.0:
     esutils "^2.0.2"
 
 edit-json-file@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/edit-json-file/-/edit-json-file-1.6.0.tgz#ff51a1648e40ab7613c912f33a2d1079d9b03f63"
-  integrity sha512-m2l38nUbRLxE4rfKC03PYujSGsjpGlF9PyenteiT/rXCGdk7CVoSS2BJEiGUBoAPfGSsiZv8yA5x81WAoQJbuQ==
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/edit-json-file/-/edit-json-file-1.6.2.tgz#22a724fa82cffc6a28ed2d88947aa17657795168"
+  integrity sha512-RrN30juETHpFOHZ99nzSf6+P3SkxRq79qx0CKFCv+zMZYN0FzHdGYKJT3GEqNJ6/yFPBIZ04wzpJSrWrxiNGdA==
   dependencies:
-    find-value "^1.0.3"
-    iterate-object "^1.3.2"
-    r-json "^1.2.5"
-    set-value "^3.0.1"
-    w-json "^1.3.5"
+    find-value "^1.0.12"
+    iterate-object "^1.3.4"
+    r-json "^1.2.10"
+    set-value "^4.1.0"
+    w-json "^1.3.10"
 
 electron-to-chromium@^1.3.846:
   version "1.3.849"
@@ -1426,7 +1426,7 @@ find-up@^6.0.0:
     locate-path "^7.0.0"
     path-exists "^5.0.0"
 
-find-value@^1.0.3:
+find-value@^1.0.12:
   version "1.0.12"
   resolved "https://registry.yarnpkg.com/find-value/-/find-value-1.0.12.tgz#68b6cec84e5b2d51272965e0bf09b26c9159c26e"
   integrity sha512-OCpo8LTk8eZ2sdDCwbU2Lc3ivYsdM6yod6jP2jHcNEFcjPhkgH0+POzTIol7xx1LZgtbI5rkO5jqxsG5MWtPjQ==
@@ -1835,6 +1835,11 @@ is-plain-object@^2.0.4:
   dependencies:
     isobject "^3.0.1"
 
+is-primitive@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/is-primitive/-/is-primitive-3.0.1.tgz#98c4db1abff185485a657fc2905052b940524d05"
+  integrity sha512-GljRxhWvlCNRfZyORiH77FwdFwGcMO620o37EOYC0ORWdq+WYNVqW0w2Juzew4M+L81l6/QS3t5gkkihyRqv9w==
+
 is-retry-allowed@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/is-retry-allowed/-/is-retry-allowed-1.2.0.tgz#d778488bd0a4666a3be8a1482b9f2baafedea8b4"
@@ -1882,7 +1887,7 @@ isobject@^3.0.1:
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
 
-iterate-object@^1.3.2:
+iterate-object@^1.3.4:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/iterate-object/-/iterate-object-1.3.4.tgz#fa50b1d9e58e340a7dd6b4c98c8a5e182e790096"
   integrity sha512-4dG1D1x/7g8PwHS9aK6QV5V94+ZvyP4+d19qDv43EzImmrndysIl4prmJ1hWWIGCqrZHyaHBm6BSEWHOLnpoNw==
@@ -2414,7 +2419,7 @@ queue-microtask@^1.2.2:
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.2.tgz#abf64491e6ecf0f38a6502403d4cda04f372dfd3"
   integrity sha512-dB15eXv3p2jDlbOiNLyMabYg1/sXvppd8DP2J3EOCQ0AkuSXCW2tP7mnVouVLJKgUMY6yP0kcQDVpLCN13h4Xg==
 
-r-json@^1.2.5:
+r-json@^1.2.10:
   version "1.2.10"
   resolved "https://registry.yarnpkg.com/r-json/-/r-json-1.2.10.tgz#62a73d9cafa7eabf670e5c2812c27bdb220a968b"
   integrity sha512-hu9vyLjSlHXT62NAS7DjI9WazDlvjN0lgp3n431dCVnirVcLkZIpzSwA3orhZEKzdDD2jqNYI+w0yG0aFf4kpA==
@@ -2599,12 +2604,13 @@ semver@^7.3.5:
   dependencies:
     lru-cache "^6.0.0"
 
-set-value@^3.0.1:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/set-value/-/set-value-3.0.2.tgz#74e8ecd023c33d0f77199d415409a40f21e61b90"
-  integrity sha512-npjkVoz+ank0zjlV9F47Fdbjfj/PfXyVhZvGALWsyIYU/qrMzpi6avjKW3/7KeSU2Df3I46BrN1xOI1+6vW0hA==
+set-value@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/set-value/-/set-value-4.1.0.tgz#aa433662d87081b75ad88a4743bd450f044e7d09"
+  integrity sha512-zTEg4HL0RwVrqcWs3ztF+x1vkxfm0lP+MQQFPiMJTKVceBwEV0A569Ou8l9IYQG8jOZdMVI1hGsc0tmeD2o/Lw==
   dependencies:
     is-plain-object "^2.0.4"
+    is-primitive "^3.0.1"
 
 shebang-command@^1.2.0:
   version "1.2.0"
@@ -2991,7 +2997,7 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-w-json@^1.3.5:
+w-json@^1.3.10:
   version "1.3.10"
   resolved "https://registry.yarnpkg.com/w-json/-/w-json-1.3.10.tgz#ac448a19ca22376e2753a684b52369c7b1e83313"
   integrity sha512-XadVyw0xE+oZ5FGApXsdswv96rOhStzKqL53uSe5UaTadABGkWIg1+DTx8kiZ/VqTZTBneoL0l65RcPe4W3ecw==
