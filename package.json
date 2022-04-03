@@ -94,6 +94,7 @@
       "requireConfigFile": false
     },
     "rules": {
+      "import/extensions": "off",
       "max-params": [
         "warn",
         {
@@ -122,7 +123,8 @@
           }
         }
       ],
-      "unicorn/numeric-separators-style": "off"
+      "unicorn/numeric-separators-style": "off",
+      "@typescript-eslint/object-curly-spacing": "off"
     }
   },
   "types": "lib/index.d.ts"

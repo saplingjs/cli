@@ -1,31 +1,31 @@
-import {Command, flags} from '@oclif/command'
+import * as path from 'node:path';
+import { Command, flags } from '@oclif/command';
 
-import * as path from 'path'
-import * as editJsonFile from 'edit-json-file'
-import { isSapling, getSaplingDir } from '../satnav'
+import * as editJsonFile from 'edit-json-file';
+import { isSapling, getSaplingDir } from '../satnav';
 
 export default class Set extends Command {
-	static description = 'Set a config variable in the current Sapling project'
+	static description = 'Set a config variable in the current Sapling project';
 
 	static flags = {
-		help: flags.help({char: 'h'}),
-	}
+		help: flags.help({ char: 'h' }),
+	};
 
-	static args = [{name: 'key'}, {name: 'value'}]
+	static args = [{ name: 'key' }, { name: 'value' }];
 
 	async run() {
-		const {args} = this.parse(Set)
+		const { args } = this.parse(Set);
 
 		/* Check we're in the right place */
-		if(await isSapling()) {
+		if (await isSapling()) {
 			/* Check we have the right stuff */
-			if(args.key && args.value) {
+			if (args.key && args.value) {
 				/* Make the change */
-				let config = editJsonFile(path.join(await getSaplingDir(), 'config.json'))
-				config.set(args.key, args.value)
-				config.save()
+				const config = editJsonFile(path.join(await getSaplingDir(), 'config.json'));
+				config.set(args.key, args.value);
+				config.save();
 			} else {
-				console.error("You must provide both key and value");
+				console.error('You must provide both key and value');
 			}
 		}
 	}
