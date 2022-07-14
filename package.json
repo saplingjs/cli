@@ -23,7 +23,7 @@
     "friendly-words": "^1.1.10",
     "fs-extra": "^10.0.0",
     "get-port": "^6.0.0",
-    "inquirer": "^8.0.0",
+    "inquirer": "^9.0.1",
     "tslib": "^2.1.0"
   },
   "devDependencies": {
