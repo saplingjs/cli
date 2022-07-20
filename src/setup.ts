@@ -1,9 +1,12 @@
+#!/usr/bin/env node
+
 /**
  * Setup
  *
  * Run through the questionnaire to setup/edit a project
  */
 
+import * as process from 'node:process';
 import * as path from 'node:path';
 import * as fs from 'fs-extra';
 
@@ -13,6 +16,8 @@ import * as inquirer from 'inquirer';
 import * as editJsonFile from 'edit-json-file';
 import * as friendlyWords from 'friendly-words';
 
+import __dirname from './dirname';
+
 /**
  * Generate an available project name
  *
@@ -20,8 +25,8 @@ import * as friendlyWords from 'friendly-words';
  */
 function generateName(): string {
 	/* Generate a name */
-	const adj = friendlyWords.predicates[Math.floor(Math.random() * friendlyWords.predicates.length)];
-	const object = friendlyWords.objects[Math.floor(Math.random() * friendlyWords.objects.length)];
+	const adj: string = friendlyWords.predicates[Math.floor(Math.random() * friendlyWords.predicates.length)] as string;
+	const object: string = friendlyWords.objects[Math.floor(Math.random() * friendlyWords.objects.length)] as string;
 	const name = `${adj}-${object}`;
 
 	/* If it's taken, come up with something new */
@@ -34,7 +39,7 @@ function generateName(): string {
 
 export async function runQuestionnaire(isNew = true, cwd: string = process.cwd()) {
 	/* Read available drivers from disk */
-	const drivers = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/drivers.json')));
+	const drivers: Record<string, unknown> = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/drivers.json')));
 
 	/* Ask everything we need to know */
 	const responses: any = await inquirer.prompt([
@@ -171,6 +176,7 @@ export async function runQuestionnaire(isNew = true, cwd: string = process.cwd()
 		console.log(`Sapling project ${responses.name} created!`);
 		console.log('Running now...');
 
+		/* eslint-disable-next-line @typescript-eslint/naming-convention */
 		execa('./node_modules/.bin/sapling', { stdio: 'inherit', env: { FORCE_COLOR: 'true' } }).stdout?.pipe(process.stdout);
 	} else {
 		console.log(`Sapling project ${responses.name} edited!`);

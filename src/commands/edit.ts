@@ -6,15 +6,15 @@ import { isSapling, getSaplingDir } from '../satnav';
 export default class Edit extends Command {
 	static description = 'Reconfigure an existing Sapling project';
 
-	static aliases = ['modify', 'reconfigure', 'change'];
+	static aliases: string[] = ['modify', 'reconfigure', 'change'];
 
-	static flags = {
+	static flags: Record<string, unknown> = {
 		help: flags.help({ char: 'h' }),
 	};
 
 	async run() {
 		if (await isSapling()) {
-			runQuestionnaire(false, await getSaplingDir());
+			await runQuestionnaire(false, await getSaplingDir());
 		}
 	}
 }

@@ -87,7 +87,8 @@
       "lib/**/*.*",
       "tmp/**/*.*",
       "node_modules/**/*.*",
-      "test/**/*.*"
+      "test/**/*.*",
+      "src/friendly-words.d.ts"
     ],
     "parser": "@babel/eslint-parser",
     "parserOptions": {

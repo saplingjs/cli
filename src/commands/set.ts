@@ -7,11 +7,11 @@ import { isSapling, getSaplingDir } from '../satnav';
 export default class Set extends Command {
 	static description = 'Set a config variable in the current Sapling project';
 
-	static flags = {
+	static flags: Record<string, unknown> = {
 		help: flags.help({ char: 'h' }),
 	};
 
-	static args = [{ name: 'key' }, { name: 'value' }];
+	static args: Array<Record<string, unknown>> = [{ name: 'key' }, { name: 'value' }];
 
 	async run() {
 		const { args } = this.parse(Set);
@@ -19,7 +19,7 @@ export default class Set extends Command {
 		/* Check we're in the right place */
 		if (await isSapling()) {
 			/* Check we have the right stuff */
-			if (args.key && args.value) {
+			if (args.key && args.value) {
 				/* Make the change */
 				const config = editJsonFile(path.join(await getSaplingDir(), 'config.json'));
 				config.set(args.key, args.value);
