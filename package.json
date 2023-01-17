@@ -14,7 +14,7 @@
     "@oclif/plugin-not-found": "^2.2.3",
     "@oclif/plugin-warn-if-update-available": "^2.0.2",
     "@types/edit-json-file": "^1.4.0",
-    "@types/fs-extra": "^9.0.8",
+    "@types/fs-extra": "^11.0.1",
     "@types/inquirer": "^9.0.0",
     "cli-ux": "^6.0.6",
     "edit-json-file": "^1.6.0",
