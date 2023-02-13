@@ -18,7 +18,7 @@
     "@types/inquirer": "^9.0.0",
     "cli-ux": "^6.0.6",
     "edit-json-file": "^1.6.0",
-    "execa": "^6.0.0",
+    "execa": "^7.0.0",
     "find-up": "^6.0.0",
     "friendly-words": "^1.1.10",
     "fs-extra": "^11.0.0",
